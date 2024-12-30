@@ -1,9 +1,19 @@
+#!/usr/bin/env python3
 from isaacsim import SimulationApp
 
-# launch omniverse app
-simulation_app = SimulationApp({"headless": False, "anti_aliasing": 0,
-                                "width": 1280, "height": 720, 
-                                "hide_ui": True})
+# Include the necessary extensions
+simulation_app = SimulationApp({
+    "headless": False,
+    "anti_aliasing": 0,
+    "width": 1280,
+    "height": 720,
+    "hide_ui": True,
+    "exts": [
+        {"path": "/home/goitom/.local/share/ov/pkg/isaac-sim-4.2.0/exts/omni.isaac.core"},
+        {"path": "/home/goitom/.local/share/ov/pkg/isaac-sim-4.2.0/exts/omni.isaac.ros2_bridge"}
+    ]
+})
+
 import rclpy
 import torch
 import omni

@@ -19,9 +19,22 @@ Welcome to the Isaac Sim Unitree Go2 repository! This repository provides a Unit
 
 **Step III:** Install the prerequisite C extension in the conda environment. [reference link](https://stackoverflow.com/questions/58424974/anaconda-importerror-usr-lib64-libstdc-so-6-version-glibcxx-3-4-21-not-fo)
 ```
-# default conda env for Isaac Lab
-conda activate isaaclab      
-conda install -c conda-forge libstdcxx-ng
+ # default conda env for Isaac Lab
+# conda activate isaaclab      
+# conda install -c conda-forge libstdcxx-ng -->
+
+# without venenv or conda, just set env't variables to bashrc
+
+export ISAACSIM_PATH="${HOME}/.local/share/ov/pkg/isaac-sim-4.2.0"
+export ISAACSIM_PYTHON_EXE="${ISAACSIM_PATH}/python.sh"
+export EXP_PATH="${ISAACSIM_PATH}"
+export CARB_APP_PATH="${ISAACSIM_PATH}"
+
+# source it
+source .bashrc
+
+
+
 ```
 
 **Step IV:** Clone this repo to your local directory.
@@ -32,8 +45,9 @@ git clone https://github.com/Zhefan-Xu/isaac-go2-ros2.git
 ## Run Unitree Go2 Simulation 
 To run the simulation, please use the following command:
 ```
-conda activate isaaclab
-python isaac_go2_ros2.py
+# Run
+cd path/to/isaac-go2-ros2
+${ISAACSIM_PYTHON_EXE} ./isaac_go2_ros2.py
 ```
 Once the simulation is loaded, the robot can be teleoperated by the keyboard:
 
